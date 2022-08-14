@@ -1,0 +1,307 @@
+@use './../forward' as *;
+
+.landing-section {
+    position: relative;
+    overflow: hidden;
+}
+
+//Asterisk Background Style
+.landing-bkg-image {
+    position: absolute;
+    right: -30rem;
+    top: -20rem;
+}
+
+
+//First Section Style
+.landing-content {
+    position: inherit;
+
+    //border: 1px solid white;
+
+    @include flexbox(column, center, center);
+
+    @include respondTo(tablet) {
+        display: grid;
+        grid-template-rows: min-content min-content 1fr;
+        grid-template-areas: 
+            "heading heading"
+            "subtext subtext"
+            "image panel";
+    }
+}
+
+.landing-content > h1 {
+    grid-area: heading;
+    margin-inline: auto;
+    margin-top: 2rem;
+    width: 16rem;
+    text-align: center;
+
+    @include respondTo(tablet) {
+        width: 40rem;
+    };
+}
+
+.landing-content > p {
+    grid-area: subtext;
+    margin-inline: auto;
+    margin-top: 4rem;
+    margin-bottom: 6rem;
+    width: 16rem;
+    text-align: center;
+
+    @include respondTo(tablet) {
+        width: 40rem;
+    };
+}
+
+
+
+//landing Lock and Key image styling
+
+.lock-and-key {
+    margin-inline: auto;
+    margin-top: 2rem;
+
+    @include respondTo(tablet) {
+        margin-top: -6rem;
+    }
+
+    img {
+        width: 8rem;
+        height: 100%;
+
+        @include respondTo(tablet) {
+            width: 10rem;
+            height: 100%;
+        }
+    }
+}
+
+
+
+// Password Panel styling
+
+.password-panel {
+    width: 100%;
+    margin-top: 4rem;
+    margin-bottom: 10rem;
+    background-color: $ternary-color;
+    @include flexbox($flex-dir: column, $flex-justify: center, $flex-align: center);
+    padding-inline: 3rem;
+    padding-block: 2rem;
+
+    @include respondTo(tablet) {
+        @include flexbox($flex-dir: column, $flex-justify: center, $flex-align: flex-start);
+        border-radius: 25px;
+        width: 32rem;
+        margin-left: 5rem;
+    }
+}
+
+
+
+
+// Password Panel styling row 1
+
+.password-panel-row-1 {
+    @include flexbox($flex-dir: row, $flex-justify: flex-start, $flex-align: center);
+    flex-wrap: wrap;
+}
+
+.password-input {
+    position: relative;
+    width: 13rem;
+    height: 3rem;
+    background-color: white;
+    padding-left: 1rem;
+    padding-right: 0.6rem;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    @include flexbox($flex-dir: row, $flex-justify: flex-start, $flex-align: center);
+
+    @include respondTo(tablet) {
+        width: 17rem;
+    }
+}
+
+.password {
+    position: absolute;
+    z-index: 30;
+    color: $primary-color;
+    margin-right: 1rem;
+    width: 12ch;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+
+    @include respondTo(tablet) {
+        width: 20ch;
+    }
+}
+
+.password-strength {
+    position: relative;
+    z-index: 50;
+    margin-left: auto;
+    padding-inline: 0.8rem;
+    padding-block: 0.1rem;
+    border-radius: 15px;
+    transition: all 0.2s ease-in-out;
+}
+
+.strong-password {
+    background-color: $primary-color;
+}
+
+.weak-password {
+    background-color: #F64038;
+}
+
+
+
+
+
+.password-error {
+    margin-top: 1rem;
+    color: #F64038;
+    display: none;
+}
+
+.error-active {
+    display: block;
+}
+
+
+
+
+.reload-password {
+    position: relative;
+    z-index: 50;
+    cursor: pointer;
+    background-color: $primary-color;
+    height: 3rem;
+    width: 3rem;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    @include flexbox($flex-dir: row, $flex-justify: center, $flex-align: center);
+    transition: all 0.1s ease-in-out;
+    user-select: none;
+}
+
+.copy-password {
+    width: 4rem;
+    height: 3rem;
+    background-color: $primary-color;
+    margin-left: 1rem;
+    border-radius: 10px;
+    @include flexbox($flex-dir: row, $flex-justify: center, $flex-align: center);
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+    user-select: none;
+}
+
+.reload-password:hover, .copy-password:hover {
+    background-color: rgba($color: #12319D, $alpha: .4);
+}
+
+.password-copied {
+    opacity: 0;
+    position: fixed;
+    top: 2rem;
+    left: calc(50% - 8rem);
+    color: $primary-color;
+    background-color: white;
+    padding-inline: 3rem;
+    padding-block: 0.5rem;
+    border-radius: 10px;
+    transition: all 0.1s ease-in-out;
+}
+
+.password-copied-active {
+    opacity: 1;
+}
+
+
+
+// Password Panel styling row 2
+
+.password-panel-row-2 {
+    margin-top: 2rem;
+    @include flexbox($flex-dir: column, $flex-justify: center, $flex-align: flex-start);
+}
+
+.password-length {
+    @include flexbox($flex-dir: row, $flex-justify: center, $flex-align: center);
+
+    p {
+        font-size: 1.1rem;
+        font-weight: 400;
+    }
+}
+
+.password-count {
+    padding-inline: 2rem;
+    font-size: 1.1rem;
+
+    @include respondTo(tablet) {
+        padding-inline: 1rem;
+    }
+}
+
+//Password Slider style
+
+.password-slider-container {
+    @include flexbox($flex-dir: row, $flex-justify: center, $flex-align: center);
+    margin-top: 2rem;
+}
+
+.password-slider-container [alt='minus-icon'] {
+    margin-right: 1rem;
+}
+
+#password-slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 14rem;
+    height: 2px;
+    margin-right: 1rem;
+    background-color: white;
+    opacity: 0.5;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+#password-slider:hover {
+    opacity: 1;
+}
+
+
+#password-slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: linear-gradient(116.57deg, #D3E466 16.67%, #BAD259 60.94%, #F69D71 100%);; /* Green background */
+    cursor: pointer;
+}
+
+
+
+
+// Password Panel styling row 3
+
+.password-panel-row-3 {
+    @include flexbox($flex-dir: row, $flex-justify: flex-start, $flex-align: center);
+    margin-top: 2rem;
+}
+
+.checkbox {
+    margin-right: 2rem;
+}
+
+.checkbox label {
+    margin-left: 1rem;
+}

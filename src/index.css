@@ -1,0 +1,436 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap");
+.about-section {
+  background-color: #0C194E;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-section h1 {
+  margin-top: 6rem;
+  margin-inline: 4rem;
+}
+@media (min-width: 767px) {
+  .about-section h1 {
+    margin-inline: auto;
+  }
+}
+
+.about-section p {
+  margin-block: 4rem;
+  margin-inline: 4rem;
+}
+@media (min-width: 767px) {
+  .about-section p {
+    margin-inline: auto;
+    width: 35rem;
+  }
+}
+@media (min-width: 1024px) {
+  .about-section p {
+    position: relative;
+    width: 35rem;
+  }
+}
+
+.landing-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.landing-bkg-image {
+  position: absolute;
+  right: -30rem;
+  top: -20rem;
+}
+
+.landing-content {
+  position: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+@media (min-width: 767px) {
+  .landing-content {
+    display: grid;
+    grid-template-rows: -webkit-min-content -webkit-min-content 1fr;
+    grid-template-rows: min-content min-content 1fr;
+    grid-template-areas: "heading heading" "subtext subtext" "image panel";
+  }
+}
+
+.landing-content > h1 {
+  grid-area: heading;
+  margin-inline: auto;
+  margin-top: 2rem;
+  width: 16rem;
+  text-align: center;
+}
+@media (min-width: 767px) {
+  .landing-content > h1 {
+    width: 40rem;
+  }
+}
+
+.landing-content > p {
+  grid-area: subtext;
+  margin-inline: auto;
+  margin-top: 4rem;
+  margin-bottom: 6rem;
+  width: 16rem;
+  text-align: center;
+}
+@media (min-width: 767px) {
+  .landing-content > p {
+    width: 40rem;
+  }
+}
+
+.lock-and-key {
+  margin-inline: auto;
+  margin-top: 2rem;
+}
+@media (min-width: 767px) {
+  .lock-and-key {
+    margin-top: -6rem;
+  }
+}
+.lock-and-key img {
+  width: 8rem;
+  height: 100%;
+}
+@media (min-width: 767px) {
+  .lock-and-key img {
+    width: 10rem;
+    height: 100%;
+  }
+}
+
+.password-panel {
+  width: 100%;
+  margin-top: 4rem;
+  margin-bottom: 10rem;
+  background-color: #2B5EDD;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-inline: 3rem;
+  padding-block: 2rem;
+}
+@media (min-width: 767px) {
+  .password-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    border-radius: 25px;
+    width: 32rem;
+    margin-left: 5rem;
+  }
+}
+
+.password-panel-row-1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.password-input {
+  position: relative;
+  width: 13rem;
+  height: 3rem;
+  background-color: white;
+  padding-left: 1rem;
+  padding-right: 0.6rem;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+@media (min-width: 767px) {
+  .password-input {
+    width: 17rem;
+  }
+}
+
+.password {
+  position: absolute;
+  z-index: 30;
+  color: #12319D;
+  margin-right: 1rem;
+  width: 12ch;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+}
+@media (min-width: 767px) {
+  .password {
+    width: 20ch;
+  }
+}
+
+.password-strength {
+  position: relative;
+  z-index: 50;
+  margin-left: auto;
+  padding-inline: 0.8rem;
+  padding-block: 0.1rem;
+  border-radius: 15px;
+  transition: all 0.2s ease-in-out;
+}
+
+.strong-password {
+  background-color: #12319D;
+}
+
+.weak-password {
+  background-color: #F64038;
+}
+
+.password-error {
+  margin-top: 1rem;
+  color: #F64038;
+  display: none;
+}
+
+.error-active {
+  display: block;
+}
+
+.reload-password {
+  position: relative;
+  z-index: 50;
+  cursor: pointer;
+  background-color: #12319D;
+  height: 3rem;
+  width: 3rem;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.1s ease-in-out;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.copy-password {
+  width: 4rem;
+  height: 3rem;
+  background-color: #12319D;
+  margin-left: 1rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.reload-password:hover, .copy-password:hover {
+  background-color: rgba(18, 49, 157, 0.4);
+}
+
+.password-copied {
+  opacity: 0;
+  position: fixed;
+  top: 2rem;
+  left: calc(50% - 8rem);
+  color: #12319D;
+  background-color: white;
+  padding-inline: 3rem;
+  padding-block: 0.5rem;
+  border-radius: 10px;
+  transition: all 0.1s ease-in-out;
+}
+
+.password-copied-active {
+  opacity: 1;
+}
+
+.password-panel-row-2 {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.password-length {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.password-length p {
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+.password-count {
+  padding-inline: 2rem;
+  font-size: 1.1rem;
+}
+@media (min-width: 767px) {
+  .password-count {
+    padding-inline: 1rem;
+  }
+}
+
+.password-slider-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.password-slider-container [alt=minus-icon] {
+  margin-right: 1rem;
+}
+
+#password-slider {
+  -webkit-appearance: none; /* Override default CSS styles */
+  -moz-appearance: none;
+       appearance: none;
+  width: 14rem;
+  height: 2px;
+  margin-right: 1rem;
+  background-color: white;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+
+#password-slider:hover {
+  opacity: 1;
+}
+
+#password-slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: linear-gradient(116.57deg, #D3E466 16.67%, #BAD259 60.94%, #F69D71 100%); /* Green background */
+  cursor: pointer;
+}
+
+.password-panel-row-3 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.checkbox {
+  margin-right: 2rem;
+}
+
+.checkbox label {
+  margin-left: 1rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  width: 100vw;
+  height: 100vh;
+  background-color: #12319D;
+  overflow-x: hidden;
+}
+
+h1 {
+  font-family: "Inter";
+  font-weight: 800;
+  color: white;
+  line-height: normal;
+  font-size: 1.7rem;
+}
+@media (min-width: 767px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+}
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+}
+
+p {
+  font-family: "Inter";
+  font-weight: 300;
+  color: white;
+  line-height: 1.7;
+  font-size: 0.9rem;
+}
+@media (min-width: 767px) {
+  p {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 1024px) {
+  p {
+    font-size: 1.1rem;
+  }
+}
+
+span {
+  font-family: "Inter";
+  font-weight: 400;
+  color: white;
+  line-height: 1.7;
+  font-size: 0.8rem;
+}
+
+label {
+  font-family: "Inter";
+  font-weight: 400;
+  color: white;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+header {
+  padding-block: 2rem;
+}
+
+header [alt=rock-logo] {
+  margin-left: 2rem;
+  width: 4rem;
+  height: 100%;
+}
+
+footer {
+  padding-block: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (min-width: 992px) {
+  header [alt=rock-logo] {
+    margin-left: 10rem;
+  }
+}/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,31 @@
+@use './../forward' as *;
+
+.about-section {
+    background-color: $secondary-color;
+    @include flexbox($flex-dir: column, $flex-justify: center, $flex-align: center);
+}
+
+.about-section h1 {
+    margin-top: 6rem;
+    //width: 36rem;
+    margin-inline: 4rem;
+
+    @include respondTo(tablet) {
+        margin-inline: auto;
+    }
+}
+
+.about-section p {
+    margin-block: 4rem;
+    margin-inline: 4rem;
+
+    @include respondTo(tablet) {
+        margin-inline: auto;
+        width: 35rem;
+    }
+
+    @include respondTo(desktop) {
+        position: relative;
+        width: 35rem;
+    }
+}
