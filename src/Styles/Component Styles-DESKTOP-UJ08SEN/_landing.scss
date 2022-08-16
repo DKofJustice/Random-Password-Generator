@@ -65,6 +65,10 @@
     margin-top: 2rem;
 
     @include respondTo(tablet) {
+        margin-top: -8rem;
+    }
+
+    @include respondTo(desktop) {
         margin-top: -6rem;
     }
 
@@ -72,7 +76,7 @@
         width: 8rem;
         height: 100%;
 
-        @include respondTo(tablet) {
+        @include respondTo(dekstop) {
             width: 10rem;
             height: 100%;
         }
@@ -96,6 +100,10 @@
         @include flexbox($flex-dir: column, $flex-justify: center, $flex-align: flex-start);
         border-radius: 25px;
         width: 32rem;
+        margin-left: 1rem;
+    }
+
+    @include respondTo(desktop) {
         margin-left: 5rem;
     }
 }
@@ -106,24 +114,28 @@
 // Password Panel styling row 1
 
 .password-panel-row-1 {
-    @include flexbox($flex-dir: row, $flex-justify: flex-start, $flex-align: center);
+    @include flexbox($flex-dir: column, $flex-justify: center, $flex-align: center);
     flex-wrap: wrap;
+
+    @include respondTo(tablet) {
+        @include flexbox($flex-dir: row, $flex-justify: flex-start, $flex-align: center);
+    }
+}
+
+
+.password-input-container {
+    @include flexbox($flex-dir: row, $flex-justify: flex-start, $flex-align: center);
 }
 
 .password-input {
     position: relative;
-    width: 13rem;
+    width: 17rem;
     height: 3rem;
     background-color: white;
     padding-left: 1rem;
-    padding-right: 0.6rem;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
     @include flexbox($flex-dir: row, $flex-justify: flex-start, $flex-align: center);
-
-    @include respondTo(tablet) {
-        width: 17rem;
-    }
 }
 
 .password {
@@ -131,20 +143,17 @@
     z-index: 30;
     color: $primary-color;
     margin-right: 1rem;
-    width: 12ch;
+    width: 19ch;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: clip;
-
-    @include respondTo(tablet) {
-        width: 20ch;
-    }
 }
 
 .password-strength {
     position: relative;
     z-index: 50;
     margin-left: auto;
+    margin-right: 1rem;
     padding-inline: 0.8rem;
     padding-block: 0.1rem;
     border-radius: 15px;
@@ -191,15 +200,22 @@
 }
 
 .copy-password {
-    width: 4rem;
+    width: 20rem;
     height: 3rem;
+    margin-top: 1rem;
     background-color: $primary-color;
-    margin-left: 1rem;
+    margin-left: 0;
     border-radius: 10px;
     @include flexbox($flex-dir: row, $flex-justify: center, $flex-align: center);
     cursor: pointer;
     transition: all 0.1s ease-in-out;
     user-select: none;
+
+    @include respondTo(tablet) {
+        width: 4rem;
+        margin-top: 0;
+        margin-left: 1rem;
+    }
 }
 
 .reload-password:hover, .copy-password:hover {
@@ -296,6 +312,7 @@
 .password-panel-row-3 {
     @include flexbox($flex-dir: row, $flex-justify: flex-start, $flex-align: center);
     margin-top: 2rem;
+    flex-wrap: wrap;
 }
 
 .checkbox {
@@ -303,5 +320,9 @@
 }
 
 .checkbox label {
-    margin-left: 1rem;
+    @include flexbox($flex-dir: row, $flex-justify: flex-start, $flex-align: center);
+}
+
+.checkbox label input {
+    margin-right: 1rem;
 }

@@ -82,7 +82,7 @@ export default function Landing() {
     }
     let checkedKeys = Object.keys(checkedCharSet);
 
-    console.log(checkedKeys)
+
 
     if(checkedKeys.length === 0) {
       console.log('no character set selected');
@@ -107,24 +107,25 @@ export default function Landing() {
 
   //Copy Password to clipboard
 
-  const copyPassword = () => {
-    navigator.clipboard.writeText(password);
 
+
+  const copyPassword = async () => {
+    await navigator.clipboard.writeText(password);
+    
     let seconds = 0;
 
     setPasswordCopied('password-copied-active');
 
     let notificationTimer = setInterval(() => {
-      setPasswordCopied('');
-      seconds++;
-      console.log(seconds);
+    setPasswordCopied('');
+    seconds++;
 
-      if (seconds === 1) {
-        clearInterval(notificationTimer);
-        console.log('interval cleared')
-      }
-    }, 2000);
-  }
+    if (seconds === 1) {
+      clearInterval(notificationTimer);
+    }
+  }, 2000);
+}
+
 
 
   return (
@@ -154,21 +155,23 @@ export default function Landing() {
         <div className='password-panel'>
           <div className='password-panel-row-1'>
 
-            <div className='password-input'>
-              <span className='password'>{password}</span>
-              <span className={`password-strength ${passwordStrength === 'STRONG' ? 'strong-password' 
-              : 'weak-password'}`}>
-                {passwordStrength}
+            <div className='password-input-container'>
+              <div className='password-input'>
+                <span className='password'>{password}</span>
+                <span className={`password-strength ${passwordStrength === 'STRONG' ? 'strong-password' 
+                : 'weak-password'}`}>
+                  {passwordStrength}
+                </span>
+              </div>
+            
+              <span className='reload-password' onClick={generatePassword}>
+                <img src={ReloadIcon} alt="reload-icon" />
               </span>
             </div>
-            
-            <span className='reload-password' onClick={generatePassword}>
-              <img src={ReloadIcon} alt="reload-icon" />
-            </span>
 
-            <span className='copy-password' onClick={copyPassword}>
-              COPY
-            </span>
+              <span className='copy-password' onClick={() => copyPassword()}>
+                COPY
+              </span>
 
             <span className={`password-error ${passwordError}`}>Password cannot be generated without at least one character set</span>
 
@@ -192,27 +195,35 @@ export default function Landing() {
 
           <div className='password-panel-row-3'>
               <div className='checkbox uppercase-checkbox'>
-                <input type="checkbox" name="uppercase" id="uppercase" defaultChecked 
-                onChange={handleCheckbox} value={checkbox.uppercase}/>
-                <label htmlFor="uppercase">ABC</label>
+                <label htmlFor="uppercase">
+                  <input type="checkbox" name="uppercase" id="uppercase" defaultChecked 
+                  onChange={handleCheckbox} value={checkbox.uppercase}/>
+                  ABC
+                  </label>
               </div>
 
               <div className='checkbox lowercase-checkbox'>
-                <input type="checkbox" name="lowercase" id="lowercase" defaultChecked 
-                onChange={handleCheckbox} value={checkbox.lowercase} />
-                <label htmlFor="lowercase">abc</label>
+                <label htmlFor="lowercase">
+                  <input type="checkbox" name="lowercase" id="lowercase" defaultChecked 
+                  onChange={handleCheckbox} value={checkbox.lowercase} />
+                  abc
+                </label>
               </div>
 
               <div className='checkbox numbers-checkbox'>
-                <input type="checkbox" name="numbers" id="numbers" defaultChecked 
-                onChange={handleCheckbox} value={checkbox.numbers} />
-                <label htmlFor="numbers">123</label>
+                <label htmlFor="numbers">
+                  <input type="checkbox" name="numbers" id="numbers" defaultChecked 
+                  onChange={handleCheckbox} value={checkbox.numbers} />
+                  123
+                </label>
               </div>
 
               <div className='checkbox special-chars-checkbox'>
-                <input type="checkbox" name="specialchars" id="special-chars" defaultChecked 
-                onChange={handleCheckbox} value={checkbox.specialchars} />
-                <label htmlFor="special-chars">#%$</label>
+                <label htmlFor="special-chars">
+                  <input type="checkbox" name="specialchars" id="special-chars" defaultChecked 
+                  onChange={handleCheckbox} value={checkbox.specialchars} />
+                  #%$
+                </label>
               </div>
             </div>
         </div>

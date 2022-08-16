@@ -94,18 +94,17 @@
 }
 @media (min-width: 767px) {
   .lock-and-key {
+    margin-top: -8rem;
+  }
+}
+@media (min-width: 1024px) {
+  .lock-and-key {
     margin-top: -6rem;
   }
 }
 .lock-and-key img {
   width: 8rem;
   height: 100%;
-}
-@media (min-width: 767px) {
-  .lock-and-key img {
-    width: 10rem;
-    height: 100%;
-  }
 }
 
 .password-panel {
@@ -128,25 +127,44 @@
     align-items: flex-start;
     border-radius: 25px;
     width: 32rem;
+    margin-left: 1rem;
+  }
+}
+@media (min-width: 1024px) {
+  .password-panel {
     margin-left: 5rem;
   }
 }
 
 .password-panel-row-1 {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+@media (min-width: 767px) {
+  .password-panel-row-1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+
+.password-input-container {
+  display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  flex-wrap: wrap;
 }
 
 .password-input {
   position: relative;
-  width: 13rem;
+  width: 17rem;
   height: 3rem;
   background-color: white;
   padding-left: 1rem;
-  padding-right: 0.6rem;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
   display: flex;
@@ -154,32 +172,23 @@
   justify-content: flex-start;
   align-items: center;
 }
-@media (min-width: 767px) {
-  .password-input {
-    width: 17rem;
-  }
-}
 
 .password {
   position: absolute;
   z-index: 30;
   color: #12319D;
   margin-right: 1rem;
-  width: 12ch;
+  width: 19ch;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: clip;
-}
-@media (min-width: 767px) {
-  .password {
-    width: 20ch;
-  }
 }
 
 .password-strength {
   position: relative;
   z-index: 50;
   margin-left: auto;
+  margin-right: 1rem;
   padding-inline: 0.8rem;
   padding-block: 0.1rem;
   border-radius: 15px;
@@ -225,10 +234,11 @@
 }
 
 .copy-password {
-  width: 4rem;
+  width: 20rem;
   height: 3rem;
+  margin-top: 1rem;
   background-color: #12319D;
-  margin-left: 1rem;
+  margin-left: 0;
   border-radius: 10px;
   display: flex;
   flex-direction: row;
@@ -240,6 +250,13 @@
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+}
+@media (min-width: 767px) {
+  .copy-password {
+    width: 4rem;
+    margin-top: 0;
+    margin-left: 1rem;
+  }
 }
 
 .reload-password:hover, .copy-password:hover {
@@ -336,6 +353,7 @@
   justify-content: flex-start;
   align-items: center;
   margin-top: 2rem;
+  flex-wrap: wrap;
 }
 
 .checkbox {
@@ -343,7 +361,14 @@
 }
 
 .checkbox label {
-  margin-left: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.checkbox label input {
+  margin-right: 1rem;
 }
 
 * {
